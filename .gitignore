@@ -1,0 +1,21 @@
+cat >> .gitignore << 'EOF'
+
+# Dataset — never commit raw ECG files
+data/files/
+data/*.dat
+data/*.hea
+data/metadata.csv
+data/RECORDS
+
+# Model checkpoints — too large for git
+outputs/checkpoints/*.pt
+outputs/checkpoints/*.pth
+
+# Colab / Jupyter artifacts
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+EOF

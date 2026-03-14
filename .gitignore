@@ -21,3 +21,23 @@ Thumbs.db
 EOF
 
 outputs/splits.json
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Model checkpoints
+outputs/checkpoints/*.pt
+outputs/checkpoints/*.pth
+
+# Numpy outputs
+outputs/*.npy
+
+# Training outputs
+outputs/training_history.json
+outputs/splits.json

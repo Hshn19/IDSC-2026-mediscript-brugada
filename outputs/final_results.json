@@ -1,0 +1,35 @@
+{
+  "model": "BrugadaCNN Ensemble (3 seeds: 42, 123, 7)",
+  "dataset": "Brugada-HUCA v1.0.0",
+  "n_total": 363,
+  "n_train": 253,
+  "n_val": 55,
+  "n_test": 55,
+  "class_distribution": {
+    "normal": 287,
+    "brugada": 76
+  },
+  "label_merge_note": "Label 2 (borderline Brugada, n=7) merged into label 1 based on clinical evidence: 4/7 show basal_pattern=1, 1/7 experienced sudden cardiac death",
+  "threshold": 0.55,
+  "validation": {
+    "auroc": 0.9483,
+    "f1": 0.8571,
+    "sensitivity": 0.8182,
+    "specificity": 0.9773,
+    "precision": 0.9000,
+    "tp": 9, "fp": 1, "tn": 43, "fn": 2
+  },
+  "test": {
+    "auroc": 0.9748,
+    "f1": 0.8000,
+    "sensitivity": 0.6667,
+    "specificity": 1.0000,
+    "precision": 1.0000,
+    "tp": 8, "fp": 0, "tn": 43, "fn": 4
+  },
+  "individual_models": {
+    "seed_42":  {"val_auroc": 0.9050, "test_auroc": 0.9070},
+    "seed_123": {"val_auroc": 0.9649, "test_auroc": 0.9535},
+    "seed_7":   {"val_auroc": 0.8988, "test_auroc": 0.9729}
+  }
+}

@@ -183,3 +183,23 @@ def plot_roc_curve(y_true, y_prob, save_path=None):
         plt.savefig(save_path, dpi=150, bbox_inches='tight')
         print(f"📊 ROC curve saved: {save_path}")
     plt.show()
+
+def plot_confusion_matrix(y_true, y_pred, save_path=None):
+    """Annotated confusion matrix heatmap."""
+    import seaborn as sns
+    cm = confusion_matrix(y_true, y_pred)
+
+    plt.figure(figsize=(5, 4))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Reds',
+                xticklabels=['Normal', 'Brugada'],
+                yticklabels=['Normal', 'Brugada'],
+                linewidths=0.5)
+    plt.ylabel('True Label')
+    plt.xlabel('Predicted Label')
+    plt.title('Confusion Matrix — Ensemble (Test Set)')
+    plt.tight_layout()
+
+    if save_path:
+        plt.savefig(save_path, dpi=150, bbox_inches='tight')
+        print(f"📊 Confusion matrix saved: {save_path}")
+    plt.show()

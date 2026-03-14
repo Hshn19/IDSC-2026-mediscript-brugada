@@ -12,9 +12,9 @@ SPLITS_PATH = r"outputs/splits.json"
 
 config = {
     'batch_size' : 16,
-    'lr'         : 1e-3,
-    'epochs'     : 80,
-    'patience'   : 15,    # stop if no val AUROC improvement for 15 epochs
+    'lr'         : 1e-3,    # ← back to original
+    'epochs'     : 80,      # ← back to original
+    'patience'   : 15,      # ← back to original
     'seed'       : 42,
 }
 

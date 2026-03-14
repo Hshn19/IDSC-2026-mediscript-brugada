@@ -42,7 +42,8 @@ class BrugadaCNN(nn.Module):
     Output: (batch, 1) — raw logit
     """
 
-    def __init__(self, dropout=0.3):
+    # Change BrugadaCNN instantiation default
+    def __init__(self, dropout=0.4):   # ← up from 0.3 to 0.4
         super().__init__()
 
         self.encoder = nn.Sequential(

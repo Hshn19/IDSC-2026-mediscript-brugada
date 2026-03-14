@@ -68,8 +68,30 @@ def preprocess_signal(signal):
     """
     signal = bandpass_filter(signal)
     signal = normalize_signal(signal)
-    return signal
+    return signal.astype(np.float32)
 
+def merge_labels(labels):
+    """
+    Merge label 2 (probable/borderline Brugada) into label 1 (Brugada).
+
+    Clinical justification:
+    - Label 2 patients exhibit Brugada-type ECG patterns (basal_pattern=1
+      in 4/7 cases) and one experienced sudden cardiac death.
+    - For a safety-critical classifier, borderline cases should be treated
+      as positive to minimize dangerous false negatives.
+    - Final label mapping: 0 = Normal, 1 = Brugada (including borderline)
+
+    Args:
+        labels : list of ints (0, 1, or 2)
+
+    Returns:
+        list of ints (0 or 1 only)
+    """
+    merged = [1 if l >= 1 else 0 for l in labels]
+    print(f"After merging label 2 → 1:")
+    print(f"  Normal  (0): {merged.count(0)}")
+    print(f"  Brugada (1): {merged.count(1)}")
+    return merged
 
 # ── Data Splitting ────────────────────────────────────────────────────────────
 
@@ -97,7 +119,7 @@ def get_splits(metadata_path, save_path=None, seed=42):
     """
     df     = pd.read_csv(metadata_path)
     ids    = df['patient_id'].astype(str).tolist()
-    labels = df['brugada'].tolist()
+    labels = merge_labels(df['brugada'].tolist())
 
     # Step 1: carve out 15% test set
     ids_tv, ids_test, y_tv, y_test = train_test_split(

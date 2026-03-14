@@ -19,3 +19,5 @@ outputs/checkpoints/*.pth
 .DS_Store
 Thumbs.db
 EOF
+
+outputs/splits.json

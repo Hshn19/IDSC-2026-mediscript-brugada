@@ -185,18 +185,28 @@ def plot_roc_curve(y_true, y_prob, save_path=None):
     plt.show()
 
 def plot_confusion_matrix(y_true, y_pred, save_path=None):
-    """Annotated confusion matrix heatmap."""
+    """
+    Annotated confusion matrix heatmap.
+    
+    Args:
+        y_true     : array of true binary labels
+        y_pred     : array of predicted binary labels (after threshold)
+        save_path  : optional path to save the figure
+    """
     import seaborn as sns
+    
     cm = confusion_matrix(y_true, y_pred)
-
-    plt.figure(figsize=(5, 4))
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Reds',
-                xticklabels=['Normal', 'Brugada'],
-                yticklabels=['Normal', 'Brugada'],
-                linewidths=0.5)
-    plt.ylabel('True Label')
-    plt.xlabel('Predicted Label')
-    plt.title('Confusion Matrix — Ensemble (Test Set)')
+    
+    fig, ax = plt.subplots(figsize=(5, 4))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
+                xticklabels=['Pred: Normal', 'Pred: Brugada'],
+                yticklabels=['True: Normal', 'True: Brugada'],
+                linewidths=0.5, ax=ax,
+                annot_kws={"size": 14, "weight": "bold"})
+    ax.set_title('Confusion Matrix — BrugadaCNN Ensemble (Test Set)',
+                 fontsize=11, fontweight='bold')
+    ax.set_ylabel('True Label')
+    ax.set_xlabel('Predicted Label')
     plt.tight_layout()
 
     if save_path:

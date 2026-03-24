@@ -1,6 +1,8 @@
 import sys, os
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
 
+from config import DATA_DIR, SPLITS_PATH
 from src.model import BrugadaCNN, count_parameters
 from src.preprocessing import load_splits
 from src.train import run_training

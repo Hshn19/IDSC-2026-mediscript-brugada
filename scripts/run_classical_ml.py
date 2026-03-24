@@ -1,5 +1,8 @@
 import sys, os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
+
+from config import DATA_DIR, METADATA_PATH, SPLITS_PATH
 
 import numpy as np
 import pandas as pd

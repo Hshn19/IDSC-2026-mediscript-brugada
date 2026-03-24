@@ -1,5 +1,8 @@
 import sys, os
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
+
+from config import DATA_DIR, SPLITS_PATH, ENSEMBLE_DIR, SEEDS, THRESHOLD
 
 import torch
 import json
@@ -48,6 +51,8 @@ if __name__ == "__main__":
                                DATA_DIR, config)
 
         # Rename the saved checkpoint to seed-specific name
+        if os.path.exists(ckpt_path):
+            os.remove(ckpt_path)
         os.rename(f"{ENSEMBLE_DIR}/best_model.pt", ckpt_path)
         print(f"  Saved: {ckpt_path}")
 

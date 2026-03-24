@@ -1,9 +1,11 @@
 import sys
 import os
 
-# So Python can find the src/ module
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+# Add repo root to path so config.py can be found
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
 
+from config import DATA_DIR, METADATA_PATH
 from src.dataset import load_metadata, verify_all_records
 
 # ── Edit these two paths to match where your data lives ──────────────────────
@@ -16,6 +18,6 @@ if __name__ == "__main__":
     all_ok      = verify_all_records(ids, DATA_DIR)
 
     if all_ok:
-        print("\n🎉 All records verified. Safe to proceed to preprocessing.")
+        print("\n✅ All records verified. Safe to proceed to preprocessing.")
     else:
         print("\n⚠️  Fix the failed records before proceeding.")

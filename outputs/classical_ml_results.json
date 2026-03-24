@@ -1,0 +1,41 @@
+{
+  "Logistic Regression": {
+    "auroc": 0.7441860465116279,
+    "f1": 0.5333333333333333,
+    "sensitivity": 0.6666666666666666,
+    "specificity": 0.7674418604651163,
+    "precision": 0.4444444444444444,
+    "tp": 8,
+    "fp": 10,
+    "tn": 33,
+    "fn": 4
+  },
+  "SVM (RBF)": {
+    "auroc": 0.748062015503876,
+    "f1": 0.45454545454545453,
+    "sensitivity": 0.4166666666666667,
+    "specificity": 0.8837209302325582,
+    "precision": 0.5,
+    "tp": 5,
+    "fp": 5,
+    "tn": 38,
+    "fn": 7
+  },
+  "Random Forest": {
+    "auroc": 0.7538759689922481,
+    "f1": 0.0,
+    "sensitivity": 0.0,
+    "specificity": 0.9767441860465116,
+    "precision": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "tn": 42,
+    "fn": 12
+  },
+  "BrugadaCNN Ensemble": {
+    "auroc": 0.9748,
+    "f1": 0.8,
+    "sensitivity": 0.6667,
+    "specificity": 1.0
+  }
+}

@@ -10,7 +10,7 @@
     "brugada": 76
   },
   "label_merge_note": "Label 2 (borderline Brugada, n=7) merged into label 1 based on clinical evidence: 4/7 show basal_pattern=1, 1/7 experienced sudden cardiac death",
-  "threshold": 0.85,
+  "threshold": 0.55,
   "cross_validation": {
     "folds": 5,
     "fold_aurocs": [0.9518, 0.9494, 0.9506, 0.8971, 0.9532],
@@ -28,11 +28,11 @@
 },
 "test": {
     "auroc": 0.9612,
-    "f1": 0.8571,
-    "sensitivity": 0.7500,
-    "specificity": 1.0000,
-    "precision": 1.0000,
-    "tp": 9, "fp": 0, "tn": 43, "fn": 3
+    "f1": 0.9130,
+    "sensitivity": 0.9167,
+    "specificity": 0.9767,
+    "precision": 0.9167,
+    "tp": 11, "fp": 1, "tn": 42, "fn": 1
 },
 "individual_models": {
     "seed_42":  {"val_auroc": 0.9112, "test_auroc": 0.9264},

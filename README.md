@@ -1,4 +1,4 @@
-# BrugadaCNN — Automated Brugada Syndrome Detection from 12-Lead ECG
+# Deep Learning for Automated Brugada Syndrome Detection from 12-Lead ECG
 
 > **IDSC 2026 Submission | Team MediScript | Dataset: Brugada-HUCA (PhysioNet)**
 
